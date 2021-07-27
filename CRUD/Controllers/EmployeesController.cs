@@ -19,11 +19,11 @@ namespace CRUD.Controllers
         {
             List<Employee> employees = db.Employees.Include(e => e.Department).Include(e => e.Salary).ToList();
 
-            var asd = from e in employees
+            var temp = from e in employees
                      orderby e.Salary.SalaryAmount descending, e.Name
                      select e;
 
-            return View(asd.ToList());
+            return View(temp.ToList());
         }
 
         // GET: Employees/Details/5
